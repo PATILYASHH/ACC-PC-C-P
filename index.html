@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACC Copy-Paste | ERP to Tally</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="header">
+    <h1>ACC Copy-Paste</h1>
+    <div class="header-right">
+      <span id="last-updated"></span>
+      <button class="btn" id="refresh-btn" onclick="refreshData()">Refresh</button>
+    </div>
+  </div>
+
+  <div class="tabs-bar">
+    <button class="tab-btn active" data-tab="pending" onclick="switchTab('pending')">
+      Remaining <span class="tab-count" id="pending-count">0</span>
+    </button>
+    <button class="tab-btn" data-tab="completed" onclick="switchTab('completed')">
+      Transferred <span class="tab-count" id="completed-count">0</span>
+    </button>
+  </div>
+
+  <div class="filter-bar">
+    <input type="text" class="search-input" id="search-input" placeholder="Search order, customer, PO, casting...">
+    <select class="filter-select" id="status-filter">
+      <option value="all">All Status</option>
+      <option value="Pending">Pending</option>
+      <option value="Scheduled">Scheduled</option>
+      <option value="Partially_Scheduled">Partially Scheduled</option>
+      <option value="PNR">PNR</option>
+      <option value="In Progress">In Progress</option>
+      <option value="Completed">Completed</option>
+      <option value="Cancelled">Cancelled</option>
+      <option value="Closed">Closed</option>
+    </select>
+    <span class="order-count" id="order-count"></span>
+  </div>
+
+  <div class="loading" id="loading">
+    <div class="spinner"></div>
+    <div>Loading sales orders...</div>
+  </div>
+
+  <div class="empty-state" id="empty-state">
+    No orders found matching your filters.
+  </div>
+
+  <div class="cards-container" id="cards-container"></div>
+
+  <div class="load-more-container" id="load-more-container">
+    <button class="btn btn-outline" id="load-more-btn" onclick="loadMore()">Load More Orders</button>
+  </div>
+
+  <div id="toast"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/copy.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
