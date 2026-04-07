@@ -213,9 +213,27 @@ function buildCard(order) {
             <span class="info-label">Sales Engineer</span>
             <span class="info-value" data-copy="${escapeHtml(order.sales_engineer)}" onclick="copyInfoValue(event)">${order.sales_engineer || "-"}</span>
           </div>
-          <div class="info-field">
-            <span class="info-label">Delivery Address</span>
-            <span class="info-value" data-copy="${escapeHtml(order.delivery_address)}" onclick="copyInfoValue(event)">${order.delivery_address ? escapeHtml(order.delivery_address).substring(0, 60) + (order.delivery_address.length > 60 ? "..." : "") : "-"}</span>
+        </div>
+
+        <div class="card-address-section">
+          <div class="address-section-header">Address & Contact</div>
+          <div class="card-info-row">
+            <div class="info-field info-field-wide">
+              <span class="info-label">Delivery Address</span>
+              <span class="info-value" data-copy="${escapeHtml(order.delivery_address)}" onclick="copyInfoValue(event)">${escapeHtml(order.delivery_address) || "-"}</span>
+            </div>
+            <div class="info-field">
+              <span class="info-label">State Code</span>
+              <span class="info-value" data-copy="${escapeHtml(order.state_code)}" onclick="copyInfoValue(event)">${escapeHtml(order.state_code) || "-"}</span>
+            </div>
+            <div class="info-field">
+              <span class="info-label">Phone</span>
+              <span class="info-value" data-copy="${escapeHtml(order.phone_number)}" onclick="copyInfoValue(event)">${escapeHtml(order.phone_number) || "-"}</span>
+            </div>
+            <div class="info-field">
+              <span class="info-label">Email</span>
+              <span class="info-value" data-copy="${escapeHtml(order.email)}" onclick="copyInfoValue(event)">${escapeHtml(order.email) || "-"}</span>
+            </div>
           </div>
         </div>
 

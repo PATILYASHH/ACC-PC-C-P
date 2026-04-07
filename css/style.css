@@ -328,6 +328,25 @@ body {
   transition: background 0s;
 }
 
+/* Address section */
+.card-address-section {
+  border-bottom: 1px solid #eee;
+}
+
+.address-section-header {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #888;
+  font-weight: 600;
+  padding: 8px 18px 0;
+  background: #f9f9f9;
+}
+
+.info-field-wide {
+  flex: 1 1 100%;
+}
+
 /* Items table inside card */
 .card-items-table {
   width: 100%;
