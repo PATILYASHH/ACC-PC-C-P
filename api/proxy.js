@@ -4,8 +4,12 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "Missing path parameter" });
   }
 
-  const API_BASE = process.env.API_BASE || "http://185.199.53.139:8001/api/db/v1/banaerp";
-  const API_KEY = process.env.API_KEY || "db_682eaa9d3192ed72a00a0e101cf9fd8efeb3d172ee04969b0547e834d091a803";
+  const API_BASE = process.env.API_BASE;
+  const API_KEY = process.env.API_KEY;
+
+  if (!API_BASE || !API_KEY) {
+    return res.status(500).json({ error: "API_BASE or API_KEY not configured" });
+  }
 
   try {
     const response = await fetch(`${API_BASE}${path}`, {
